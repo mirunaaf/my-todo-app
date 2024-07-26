@@ -1,7 +1,7 @@
 import streamlit as st
 import functions
 
-# Declare todos variable
+# Declare todos variable - Gets todo list from todos.txt
 todos = functions.get_todos()
 
 # Create a function that gets the user input value and adds it in the todo list
@@ -12,8 +12,6 @@ def add_todo():
     functions.write_todos(todos)
 
 
-# Gets todo list from todos.txt
-todos = functions.get_todos()
 # Return a title instance
 st.title("My Todo App")
 
@@ -29,10 +27,12 @@ for index, todo in enumerate(todos):
         functions.write_todos(todos)
         # Delete the pair selected(from session_state dictionary)
         del st.session_state[todo]
-        st.experimental_rerun()
+        st.rerun()
+
 
 st.text_input(label="", placeholder="Add a new todo:",
               on_change=add_todo, key='new_todo')
+
 
 #visualize the updated session_state dictionary
 #st.session_state
