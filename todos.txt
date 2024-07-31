@@ -2,5 +2,4 @@ master GitHub
 do something
 read the lecture
 take out trash
-drink tea
-write a story
+learn Python
